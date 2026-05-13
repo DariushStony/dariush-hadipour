@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-export function usePanelHover(selector: string): boolean {
+function usePanelHover(selector: string): boolean {
   const [hovering, setHovering] = useState(false);
 
   useEffect(() => {
@@ -20,3 +20,5 @@ export function usePanelHover(selector: string): boolean {
 
   return hovering;
 }
+
+export { usePanelHover };

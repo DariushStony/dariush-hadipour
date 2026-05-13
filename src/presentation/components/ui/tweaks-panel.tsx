@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { useTheme } from '../../context/ThemeContext';
-import type { Era, HalftoneMode, CursorMode } from '../../types';
+import { useTheme } from '@application/context/theme-context';
+import type { Era, HalftoneMode, CursorMode } from '@domain/types';
 
 const ERA_OPTIONS: { value: Era; label: string }[] = [
   { value: 'classic', label: 'Classic — golden age' },
@@ -15,7 +15,7 @@ const CURSOR_OPTIONS: { value: CursorMode; label: string }[] = [
   { value: 'off', label: 'Off' },
 ];
 
-export function TweaksPanel() {
+function TweaksPanel() {
   const { tweaks, setTweak } = useTheme();
   const [open, setOpen] = useState(false);
 
@@ -41,10 +41,7 @@ export function TweaksPanel() {
 
           <div className="tw-section">
             <span className="tw-label">Era</span>
-            <select
-              value={tweaks.era}
-              onChange={(e) => setTweak('era', e.target.value as Era)}
-            >
+            <select value={tweaks.era} onChange={(e) => setTweak('era', e.target.value as Era)}>
               {ERA_OPTIONS.map((o) => (
                 <option key={o.value} value={o.value}>
                   {o.label}
@@ -89,3 +86,5 @@ export function TweaksPanel() {
     </>
   );
 }
+
+export { TweaksPanel };

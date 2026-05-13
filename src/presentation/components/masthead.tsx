@@ -1,6 +1,6 @@
-import { NAV_LINKS, SITE_META } from '../config/site';
+import { NAV_LINKS, SITE_META } from '@data/site';
 
-export function Masthead() {
+function Masthead() {
   return (
     <header className="masthead">
       <div className="logo">
@@ -18,3 +18,5 @@ export function Masthead() {
     </header>
   );
 }
+
+export { Masthead };

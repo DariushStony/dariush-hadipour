@@ -6,7 +6,7 @@ interface Props {
   statStyle?: CSSProperties;
 }
 
-export function PanelStatDisplay({ stat, label, statStyle }: Props) {
+function PanelStatDisplay({ stat, label, statStyle }: Props) {
   return (
     <div className="panel-stat-box">
       <span className="panel-stat-num" style={statStyle}>
@@ -16,3 +16,5 @@ export function PanelStatDisplay({ stat, label, statStyle }: Props) {
     </div>
   );
 }
+
+export { PanelStatDisplay };

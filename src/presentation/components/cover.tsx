@@ -1,7 +1,7 @@
-import { Starburst } from './ui/Starburst';
-import { SITE_META } from '../config/site';
+import { SITE_META } from '@data/site';
+import { Starburst } from './ui/starburst';
 
-export function Cover() {
+function Cover() {
   return (
     <section className="page cover" id="top">
       <div className="issue-tag">
@@ -76,3 +76,5 @@ export function Cover() {
     </section>
   );
 }
+
+export { Cover };

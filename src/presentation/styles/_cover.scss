@@ -1,0 +1,209 @@
+/* ============================================================
+   COVER  (Hero)
+   ============================================================ */
+.cover {
+  min-height: calc(100vh - 50px);
+  padding: clamp(40px, 7vh, 80px) var(--pad-x) clamp(40px, 6vh, 70px);
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  grid-template-rows: auto 1fr auto;
+  gap: var(--gutter);
+  position: relative;
+}
+
+.issue-tag {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  font-family: var(--f-cap);
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.issue-tag .left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.issue-tag .issue {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 6px 10px 4px;
+  font-family: var(--f-title);
+  font-size: 16px;
+  letter-spacing: 0.04em;
+}
+
+.issue-tag .price {
+  border: 3px solid var(--ink);
+  background: var(--pow);
+  padding: 8px 14px 6px;
+  transform: rotate(2deg);
+  font-family: var(--f-title);
+  font-size: 18px;
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+.cover-title {
+  grid-column: 1 / 2;
+  grid-row: 2;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cover-title .kicker {
+  display: inline-block;
+  font-family: var(--f-cap);
+  font-size: clamp(14px, 1.2vw, 16px);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 8px 14px 6px;
+  margin-bottom: 18px;
+  align-self: flex-start;
+  transform: rotate(-2deg);
+}
+
+.cover-title h1 {
+  font-family: var(--f-title);
+  font-weight: 400;
+  font-size: clamp(64px, 11vw, 180px);
+  line-height: 0.86;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-shadow:
+    6px 6px 0 var(--pow),
+    11px 11px 0 var(--ink);
+  -webkit-text-stroke: 2px var(--ink);
+}
+
+.cover-title h1 .red {
+  color: var(--bam);
+}
+
+.cover-title h1 .blue {
+  color: var(--hero);
+}
+
+.cover-title .tagline {
+  margin-top: 28px;
+  font-family: var(--f-body);
+  font-weight: 700;
+  font-size: clamp(18px, 1.5vw, 22px);
+  max-width: 32ch;
+  line-height: 1.35;
+  color: var(--ink);
+}
+
+.cover-art {
+  grid-column: 2 / 3;
+  grid-row: 2;
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.hero-burst {
+  position: relative;
+  width: min(100%, 460px);
+  aspect-ratio: 1;
+}
+
+.cover-bottom {
+  grid-column: 1 / -1;
+  grid-row: 3;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: var(--gutter);
+  margin-top: 30px;
+}
+
+.caption-box {
+  background: var(--pow);
+  border: var(--border) solid var(--ink);
+  padding: 16px 20px;
+  font-family: var(--f-cap);
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  position: relative;
+  box-shadow: 8px 8px 0 var(--ink);
+}
+
+.caption-box::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  width: 80px;
+  height: 4px;
+  background: var(--bam);
+  border: 2px solid var(--ink);
+}
+
+.caption-box b {
+  display: block;
+  font-size: 11px;
+  opacity: 0.7;
+  margin-bottom: 6px;
+}
+
+.caption-box .row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.caption-box .row b {
+  margin: 0;
+  font-size: 11px;
+}
+
+.caption-box .row span {
+  font-size: 13px;
+}
+
+.speech-cover {
+  background: var(--bubble);
+  border: var(--border) solid var(--ink);
+  border-radius: 26px;
+  padding: 18px 22px;
+  position: relative;
+  font-family: var(--f-body);
+  font-weight: 700;
+  font-size: clamp(16px, 1.3vw, 19px);
+  line-height: 1.3;
+  box-shadow: 8px 8px 0 var(--ink);
+}
+
+.speech-cover::after {
+  content: "";
+  position: absolute;
+  bottom: -22px;
+  left: 28px;
+  width: 28px;
+  height: 28px;
+  background: var(--bubble);
+  border: var(--border) solid var(--ink);
+  border-top: 0;
+  border-right: 0;
+  transform: skewX(-30deg);
+}
+
+.speech-cover b {
+  color: var(--bam);
+}
+
+.speech-cover em {
+  font-style: italic;
+  color: var(--hero);
+}

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-export function useKeyDown(key: string, handler: () => void): void {
+function useKeyDown(key: string, handler: () => void): void {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === key) handler();
@@ -9,3 +9,5 @@ export function useKeyDown(key: string, handler: () => void): void {
     return () => window.removeEventListener('keydown', onKey);
   }, [key, handler]);
 }
+
+export { useKeyDown };

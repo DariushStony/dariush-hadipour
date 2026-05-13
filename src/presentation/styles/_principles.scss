@@ -1,0 +1,120 @@
+/* ============================================================
+   PRINCIPLES  (speech bubble grid)
+   ============================================================ */
+.principle-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--gutter);
+}
+
+.principle-card {
+  background: var(--bubble);
+  border: var(--border) solid var(--ink);
+  padding: 22px 24px 26px;
+  position: relative;
+  box-shadow: 8px 8px 0 var(--ink);
+}
+
+.principle-card .pn {
+  position: absolute;
+  top: -14px;
+  left: 18px;
+  background: var(--bam);
+  color: var(--paper);
+  padding: 5px 10px 3px;
+  font-family: var(--f-title);
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  border: 2px solid var(--ink);
+}
+
+.principle-card h3 {
+  font-family: var(--f-title);
+  font-size: clamp(24px, 2vw, 34px);
+  text-transform: uppercase;
+  line-height: 0.95;
+  margin-top: 8px;
+  margin-bottom: 12px;
+  letter-spacing: 0.01em;
+}
+
+.principle-card h3 em {
+  color: var(--bam);
+  font-style: italic;
+}
+
+.principle-card p {
+  font-family: var(--f-body);
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.principle-card.thought {
+  border-radius: 20px;
+}
+
+.principle-card.thought::after,
+.principle-card.thought::before {
+  content: "";
+  position: absolute;
+  background: var(--bubble);
+  border: var(--border) solid var(--ink);
+  border-radius: 50%;
+}
+
+.principle-card.thought::before {
+  bottom: -14px;
+  left: 32px;
+  width: 18px;
+  height: 18px;
+}
+
+.principle-card.thought::after {
+  bottom: -28px;
+  left: 56px;
+  width: 10px;
+  height: 10px;
+}
+
+.principle-card.bang {
+  background: var(--pow);
+}
+
+.principle-card.bang h3 em {
+  color: var(--hero);
+}
+
+.principle-card.cool {
+  background: var(--hero);
+  color: var(--paper);
+}
+
+.principle-card.cool h3 em {
+  color: var(--pow);
+}
+
+.principle-card.hot {
+  background: var(--bam);
+  color: var(--paper);
+}
+
+.principle-card.hot h3 em {
+  color: var(--pow);
+}
+
+.principle-card.s1 {
+  grid-column: 1 / 7;
+}
+
+.principle-card.s2 {
+  grid-column: 7 / 13;
+}
+
+.principle-card.s3 {
+  grid-column: 1 / 5;
+}
+
+.principle-card.s4 {
+  grid-column: 5 / 13;
+}

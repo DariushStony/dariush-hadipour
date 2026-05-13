@@ -1,6 +1,6 @@
-import type { NavLink, SocialLink } from '../types';
+import type { NavLink, SocialLink } from '@domain/types';
 
-export const SITE_META = {
+const SITE_META = {
   name: 'Dariush Hadipour',
   shortName: 'Dariush H.',
   badge: 'D!',
@@ -20,24 +20,24 @@ export const SITE_META = {
   copyright: '© 2026 — KAPOW!',
 } as const;
 
-export const CONTACT = {
+const CONTACT = {
   email: 'dariushhadi87@gmail.com',
 } as const;
 
-export const NAV_LINKS: NavLink[] = [
+const NAV_LINKS: NavLink[] = [
   { label: 'Work', href: '#work' },
   { label: 'Origin', href: '#origin' },
   { label: 'Code', href: '#principles' },
   { label: 'Holler', href: '#contact' },
 ];
 
-export const SOCIAL_LINKS: SocialLink[] = [
+const SOCIAL_LINKS: SocialLink[] = [
   { label: 'LinkedIn ↗', href: 'https://www.linkedin.com/in/dariush-hadipour/' },
   { label: 'GitHub ↗', href: 'https://github.com/DariushStony' },
   { label: 'Digikala ↗', href: 'https://www.digikala.com' },
 ];
 
-export const ELSEWHERE_CARDS = [
+const ELSEWHERE_CARDS = [
   {
     heading: 'Elsewhere',
     links: SOCIAL_LINKS,
@@ -67,3 +67,5 @@ export const ELSEWHERE_CARDS = [
     ],
   },
 ] as const;
+
+export { SITE_META, CONTACT, NAV_LINKS, SOCIAL_LINKS, ELSEWHERE_CARDS };

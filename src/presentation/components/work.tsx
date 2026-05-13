@@ -1,13 +1,13 @@
-import type { Work } from '../types';
-import { WORKS, PANEL_LAYOUT } from '../data/works';
-import { Starburst } from './ui/Starburst';
-import { PanelStatDisplay } from './ui/PanelStatDisplay';
+import type { Work } from '@domain/types';
+import { WORKS, PANEL_LAYOUT } from '@data/works';
+import { Starburst } from './ui/starburst';
+import { PanelStatDisplay } from './ui/panel-stat-display';
 
 interface Props {
   onOpen: (work: Work) => void;
 }
 
-export function Work({ onOpen }: Props) {
+function WorkSection({ onOpen }: Props) {
   return (
     <section className="page work-section" id="work">
       <span className="page-number">
@@ -47,3 +47,5 @@ export function Work({ onOpen }: Props) {
     </section>
   );
 }
+
+export { WorkSection };

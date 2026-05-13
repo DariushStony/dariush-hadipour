@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
+import type { RefObject } from 'react';
 
-export function useCursor(elRef: React.RefObject<HTMLElement | null>): void {
+function useCursor(elRef: RefObject<HTMLElement | null>): void {
   const rafRef = useRef<number>(0);
 
   useEffect(() => {
@@ -33,3 +34,5 @@ export function useCursor(elRef: React.RefObject<HTMLElement | null>): void {
     };
   }, [elRef]);
 }
+
+export { useCursor };

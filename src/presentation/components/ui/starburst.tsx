@@ -11,7 +11,7 @@ interface Props {
   className?: string;
 }
 
-export function Starburst({ children, color = 'yellow', size = 'md', style, className = '' }: Props) {
+function Starburst({ children, color = 'yellow', size = 'md', style, className = '' }: Props) {
   const cls = ['starburst'];
   if (color !== 'yellow') cls.push(color);
   if (size !== 'md') cls.push(size);
@@ -22,3 +22,5 @@ export function Starburst({ children, color = 'yellow', size = 'md', style, clas
     </span>
   );
 }
+
+export { Starburst };

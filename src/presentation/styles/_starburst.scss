@@ -1,0 +1,121 @@
+/* ============================================================
+   STARBURST   ("POW!" / "BAM!" badges)
+   ============================================================ */
+.starburst {
+  --bg: var(--pow);
+  --bd: var(--ink);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 130px;
+  height: 130px;
+  font-family: var(--f-pow);
+  font-size: 34px;
+  color: var(--ink);
+  -webkit-text-stroke: 1px var(--ink);
+  transform: rotate(-8deg);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.starburst::before,
+.starburst::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--bg);
+  clip-path: polygon(
+    50% 0%,
+    58% 12%,
+    70% 6%,
+    70% 20%,
+    84% 18%,
+    78% 32%,
+    94% 36%,
+    84% 46%,
+    100% 54%,
+    86% 62%,
+    96% 76%,
+    80% 74%,
+    82% 88%,
+    68% 80%,
+    64% 94%,
+    54% 82%,
+    46% 100%,
+    40% 84%,
+    28% 92%,
+    30% 78%,
+    14% 82%,
+    22% 68%,
+    6% 64%,
+    18% 54%,
+    2% 46%,
+    18% 40%,
+    8% 26%,
+    24% 30%,
+    22% 14%,
+    36% 18%,
+    40% 4%
+  );
+}
+
+.starburst::before {
+  background: var(--bd);
+  transform: scale(1.06);
+  z-index: -1;
+}
+
+.starburst.lg {
+  width: 220px;
+  height: 220px;
+  font-size: 54px;
+}
+
+.starburst.xl {
+  width: 340px;
+  height: 340px;
+  font-size: 96px;
+  transform: rotate(-6deg);
+}
+
+.starburst.red {
+  --bg: var(--bam);
+  color: var(--paper);
+  -webkit-text-stroke-color: var(--paper);
+}
+
+.starburst.blue {
+  --bg: var(--hero);
+  color: var(--paper);
+  -webkit-text-stroke-color: var(--paper);
+}
+
+.starburst.green {
+  --bg: var(--zap);
+  color: var(--paper);
+  -webkit-text-stroke-color: var(--paper);
+}
+
+.starburst.white {
+  --bg: var(--bubble);
+}
+
+/* Decorative bursts sprinkled on cover */
+.burst-deco {
+  position: absolute;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.burst-deco.b1 {
+  top: -20px;
+  right: -20px;
+  transform: rotate(15deg);
+}
+
+.burst-deco.b2 {
+  bottom: -30px;
+  left: -30px;
+  transform: rotate(-22deg);
+}

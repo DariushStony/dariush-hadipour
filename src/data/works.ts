@@ -1,4 +1,4 @@
-import type { Work, PanelSize } from '../types';
+import type { Work, PanelSize } from '@domain/types';
 
 export const WORKS: Work[] = [
   {

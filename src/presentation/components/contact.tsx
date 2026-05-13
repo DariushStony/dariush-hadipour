@@ -1,6 +1,6 @@
-import { CONTACT, ELSEWHERE_CARDS, SITE_META } from '../config/site';
+import { CONTACT, ELSEWHERE_CARDS, SITE_META } from '@data/site';
 
-export function Contact() {
+function Contact() {
   return (
     <section className="page contact-page" id="contact">
       <span className="page-number">
@@ -41,3 +41,5 @@ export function Contact() {
     </section>
   );
 }
+
+export { Contact };

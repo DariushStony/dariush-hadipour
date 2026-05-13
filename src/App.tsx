@@ -1,16 +1,16 @@
 import { useEffect, useState } from 'react';
-import type { Work } from './types';
-import { ThemeProvider } from './context/ThemeContext';
-import { usePanelHover } from './hooks/usePanelHover';
-import { Cursor } from './components/ui/Cursor';
-import { TweaksPanel } from './components/ui/TweaksPanel';
-import { Masthead } from './components/Masthead';
-import { Cover } from './components/Cover';
-import { Work as WorkSection } from './components/Work';
-import { Origin } from './components/Origin';
-import { Principles } from './components/Principles';
-import { Contact } from './components/Contact';
-import { ProjectModal } from './components/ProjectModal';
+import type { Work } from '@domain/types';
+import { ThemeProvider } from '@application/context/theme-context';
+import { usePanelHover } from '@application/hooks/use-panel-hover';
+import { Cursor } from '@presentation/components/ui/cursor';
+import { TweaksPanel } from '@presentation/components/ui/tweaks-panel';
+import { Masthead } from '@presentation/components/masthead';
+import { Cover } from '@presentation/components/cover';
+import { WorkSection } from '@presentation/components/work';
+import { Origin } from '@presentation/components/origin';
+import { Principles } from '@presentation/components/principles';
+import { Contact } from '@presentation/components/contact';
+import { ProjectModal } from '@presentation/components/project-modal';
 
 const PANEL_HOVER_SELECTOR = '.panel, .mail-bubble, .principle-card';
 
@@ -42,10 +42,12 @@ function AppShell() {
   );
 }
 
-export default function App() {
+function App() {
   return (
     <ThemeProvider>
       <AppShell />
     </ThemeProvider>
   );
 }
+
+export default App;

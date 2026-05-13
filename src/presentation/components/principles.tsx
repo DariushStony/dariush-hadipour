@@ -41,7 +41,7 @@ const PRINCIPLES = [
   },
 ];
 
-export function Principles() {
+function Principles() {
   return (
     <section className="page" id="principles">
       <span className="page-number">
@@ -65,3 +65,5 @@ export function Principles() {
     </section>
   );
 }
+
+export { Principles };

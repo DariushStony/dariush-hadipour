@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react';
-import type { TweakSettings, Era, HalftoneMode, CursorMode } from '../types';
+import type { ReactNode } from 'react';
+import type { TweakSettings, Era, HalftoneMode, CursorMode } from '@domain/types';
 
 interface ThemeContextValue {
   tweaks: TweakSettings;
@@ -14,7 +15,7 @@ const DEFAULTS: TweakSettings = {
 
 const ThemeContext = createContext<ThemeContextValue | null>(null);
 
-export function ThemeProvider({ children }: { children: React.ReactNode }) {
+function ThemeProvider({ children }: { children: ReactNode }) {
   const [tweaks, setTweaks] = useState<TweakSettings>(DEFAULTS);
 
   const setTweak = (key: keyof TweakSettings, value: Era | HalftoneMode | CursorMode) => {
@@ -30,8 +31,10 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   return <ThemeContext.Provider value={{ tweaks, setTweak }}>{children}</ThemeContext.Provider>;
 }
 
-export function useTheme(): ThemeContextValue {
+function useTheme(): ThemeContextValue {
   const ctx = useContext(ThemeContext);
   if (!ctx) throw new Error('useTheme must be used within ThemeProvider');
   return ctx;
 }
+
+export { ThemeProvider, useTheme };

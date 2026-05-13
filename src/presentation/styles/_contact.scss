@@ -1,0 +1,118 @@
+/* ============================================================
+   CONTACT  (final splash)
+   ============================================================ */
+.contact-page {
+  padding: clamp(60px, 10vh, 120px) var(--pad-x) clamp(40px, 6vh, 60px);
+  text-align: center;
+  position: relative;
+}
+
+.contact-page .talk {
+  display: inline-block;
+  font-family: var(--f-title);
+  font-size: clamp(64px, 12vw, 200px);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 0.85;
+  color: var(--bam);
+  -webkit-text-stroke: 2px var(--ink);
+  text-shadow: 8px 8px 0 var(--ink);
+}
+
+.contact-page .talk em {
+  font-style: italic;
+  color: var(--pow);
+}
+
+.contact-page .talk .blue {
+  color: var(--hero);
+}
+
+.mail-bubble {
+  display: inline-block;
+  margin-top: 40px;
+  background: var(--bubble);
+  border: var(--border-lg) solid var(--ink);
+  border-radius: 30px;
+  padding: 22px 36px 24px;
+  font-family: var(--f-title);
+  font-size: clamp(28px, 4vw, 56px);
+  position: relative;
+  box-shadow: 12px 12px 0 var(--ink);
+  transition:
+    transform 240ms var(--ease-out),
+    box-shadow 240ms var(--ease-out);
+}
+
+.mail-bubble:hover {
+  transform: translate(-4px, -4px) rotate(-1deg);
+  box-shadow: 18px 18px 0 var(--ink);
+}
+
+.mail-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -28px;
+  left: 50%;
+  width: 38px;
+  height: 38px;
+  background: var(--bubble);
+  border: var(--border-lg) solid var(--ink);
+  border-top: 0;
+  border-right: 0;
+  transform: translateX(-50%) skewX(-22deg);
+}
+
+.elsewhere {
+  margin-top: 90px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--gutter);
+  text-align: left;
+}
+
+.els-card {
+  background: var(--paper);
+  border: var(--border) solid var(--ink);
+  padding: 18px 20px;
+  box-shadow: 6px 6px 0 var(--ink);
+  transform: rotate(-1deg);
+}
+
+.els-card:nth-child(even) {
+  transform: rotate(1.5deg);
+}
+
+.els-card b {
+  display: block;
+  font-family: var(--f-title);
+  font-size: 20px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.els-card a {
+  display: block;
+  font-family: var(--f-cap);
+  font-size: 14px;
+  padding: 2px 0;
+}
+
+.els-card a:hover {
+  color: var(--bam);
+}
+
+.colophon {
+  margin-top: 70px;
+  padding-top: 20px;
+  border-top: 4px double var(--ink);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-family: var(--f-cap);
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}

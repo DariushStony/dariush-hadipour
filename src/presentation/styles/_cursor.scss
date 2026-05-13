@@ -1,0 +1,62 @@
+/* ---------- Custom comic cursor ---------- */
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition:
+    width 240ms var(--ease-out),
+    height 240ms var(--ease-out);
+}
+
+.cursor::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--pow);
+  border: 2.5px solid var(--ink);
+  border-radius: 50%;
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+.cursor.lg {
+  width: 96px;
+  height: 96px;
+}
+
+.cursor.lg::before {
+  background: var(--bam);
+}
+
+.cursor .label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-8deg);
+  font: 700 14px/1 var(--f-pow);
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  opacity: 0;
+  transition: opacity 200ms;
+  white-space: nowrap;
+}
+
+.cursor.lg .label {
+  opacity: 1;
+  color: var(--paper);
+  font-size: 22px;
+}
+
+[data-cursor="off"] .cursor {
+  display: none;
+}
+
+@media (hover: none) {
+  .cursor {
+    display: none;
+  }
+}

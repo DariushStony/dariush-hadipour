@@ -1,0 +1,62 @@
+/* ---------- Masthead bar ---------- */
+.masthead {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 16px;
+  padding: 10px var(--pad-x);
+  background: var(--ink);
+  color: var(--paper);
+  border-bottom: var(--border) solid var(--ink);
+  font-family: var(--f-cap);
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.masthead .logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--f-title);
+  font-size: 18px;
+  letter-spacing: 0.04em;
+}
+
+.masthead .logo b {
+  background: var(--bam);
+  color: var(--paper);
+  padding: 4px 8px 2px;
+  border: 2px solid var(--paper);
+  transform: skewX(-8deg);
+}
+
+.masthead .meta {
+  text-align: center;
+  opacity: 0.85;
+}
+
+.masthead nav {
+  display: flex;
+  gap: 18px;
+}
+
+.masthead nav a {
+  position: relative;
+  padding: 4px 8px;
+  border: 2px solid transparent;
+  transition:
+    background 200ms,
+    color 200ms,
+    border-color 200ms;
+}
+
+.masthead nav a:hover {
+  background: var(--pow);
+  color: var(--ink);
+  border-color: var(--paper);
+}

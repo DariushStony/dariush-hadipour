@@ -1,0 +1,185 @@
+/* ============================================================
+   MODAL  (case study, comic-pop style)
+   ============================================================ */
+.modal-mask {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.55);
+  z-index: 200;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 320ms;
+  backdrop-filter: blur(6px);
+}
+
+.modal-mask.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal {
+  position: fixed;
+  inset: 3vh 4vw;
+  background: var(--paper);
+  border: var(--border-lg) solid var(--ink);
+  box-shadow: 14px 14px 0 var(--ink);
+  z-index: 210;
+  overflow: auto;
+  transform: translateY(40px) rotate(-0.5deg);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    transform 360ms var(--ease-out),
+    opacity 320ms;
+}
+
+.modal.open {
+  transform: translateY(0) rotate(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(rgba(10, 10, 10, 0.4) 1.2px, transparent 1.4px) 0
+    0 / 12px 12px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.modal-close {
+  position: sticky;
+  top: 16px;
+  margin: 16px 16px 0 auto;
+  display: flex;
+  width: max-content;
+  padding: 10px 16px 8px;
+  font-family: var(--f-title);
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  background: var(--bam);
+  color: var(--paper);
+  border: 3px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
+  z-index: 3;
+  align-items: center;
+  gap: 10px;
+}
+
+.modal-inner {
+  padding: clamp(24px, 4vw, 60px);
+  position: relative;
+  z-index: 1;
+}
+
+.modal-inner .kicker {
+  display: inline-block;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 8px 14px 6px;
+  font-family: var(--f-cap);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+.modal-inner h2 {
+  font-family: var(--f-title);
+  font-size: clamp(40px, 6.5vw, 96px);
+  line-height: 0.92;
+  text-transform: uppercase;
+  -webkit-text-stroke: 2px var(--ink);
+  text-shadow: 6px 6px 0 var(--pow);
+  letter-spacing: -0.01em;
+}
+
+.modal-inner h2 em {
+  color: var(--bam);
+  font-style: italic;
+}
+
+.modal-meta {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--gutter);
+  padding: 18px 20px;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--f-cap);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.modal-meta b {
+  display: block;
+  opacity: 0.6;
+  margin-bottom: 6px;
+  font-weight: 400;
+}
+
+.modal-meta span {
+  font-family: var(--f-title);
+  font-size: 16px;
+  letter-spacing: 0.04em;
+}
+
+.modal-hero {
+  margin-top: 30px;
+  aspect-ratio: 16/9;
+  border: var(--border) solid var(--ink);
+  box-shadow: 8px 8px 0 var(--ink);
+}
+
+.modal-prose {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: var(--gutter);
+}
+
+.modal-prose h4 {
+  font-family: var(--f-title);
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: var(--pow);
+  border: var(--border) solid var(--ink);
+  padding: 6px 12px 4px;
+  align-self: flex-start;
+  transform: rotate(-2deg);
+}
+
+.modal-prose .body p {
+  font-family: var(--f-body);
+  font-weight: 700;
+  font-size: clamp(17px, 1.4vw, 21px);
+  line-height: 1.4;
+  max-width: 60ch;
+}
+
+.modal-prose .body p + p {
+  margin-top: 14px;
+}
+
+.modal-grid {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gutter);
+}
+
+.modal-grid .panel-art {
+  border: var(--border) solid var(--ink);
+  box-shadow: 6px 6px 0 var(--ink);
+  aspect-ratio: 4/3;
+}
+
+.modal-grid .wide {
+  grid-column: 1 / -1;
+  aspect-ratio: 16/7;
+}

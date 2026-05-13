@@ -1,7 +1,7 @@
-import { SKILLS } from '../data/works';
-import { SITE_META } from '../config/site';
+import { SKILLS } from '@data/works';
+import { SITE_META } from '@data/site';
 
-export function Origin() {
+function Origin() {
   return (
     <section className="page" id="origin">
       <span className="page-number">
@@ -38,9 +38,7 @@ export function Origin() {
               display: 'block',
             }}
           />
-          <div className="name-plate">
-            {SITE_META.shortName.toUpperCase()} &middot; ENGINEER
-          </div>
+          <div className="name-plate">{SITE_META.shortName.toUpperCase()} &middot; ENGINEER</div>
         </div>
 
         <div className="bubble left">
@@ -67,3 +65,5 @@ export function Origin() {
     </section>
   );
 }
+
+export { Origin };

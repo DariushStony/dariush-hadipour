@@ -1,0 +1,64 @@
+/* ---------- Shell ---------- */
+.shell {
+  position: relative;
+  z-index: 2;
+}
+
+/* ---------- Comic page wrapper ---------- */
+.page {
+  padding: clamp(40px, 6vh, 80px) var(--pad-x);
+  position: relative;
+}
+
+.page-number {
+  position: absolute;
+  top: 18px;
+  right: var(--pad-x);
+  font-family: var(--f-cap);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink);
+  opacity: 0.7;
+}
+
+.page-number b {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 4px 10px 3px;
+  margin-left: 8px;
+}
+
+/* ---------- Section page title ---------- */
+.page-title {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.page-title h2 {
+  font-family: var(--f-title);
+  font-size: clamp(40px, 6vw, 84px);
+  letter-spacing: -0.01em;
+  line-height: 0.92;
+  text-transform: uppercase;
+  color: var(--ink);
+  -webkit-text-stroke: 1.5px var(--ink);
+  text-shadow: 4px 4px 0 var(--pow);
+}
+
+.page-title .red {
+  color: var(--bam);
+}
+
+.page-title .sub {
+  font-family: var(--f-cap);
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 8px 12px 6px;
+  background: var(--ink);
+  color: var(--paper);
+}

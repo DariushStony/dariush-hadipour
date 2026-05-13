@@ -1,15 +1,15 @@
 import { useCallback } from 'react';
-import type { Work } from '../types';
-import { useKeyDown } from '../hooks/useKeyDown';
-import { Starburst } from './ui/Starburst';
-import { PanelStatDisplay } from './ui/PanelStatDisplay';
+import type { Work } from '@domain/types';
+import { useKeyDown } from '@application/hooks/use-key-down';
+import { Starburst } from './ui/starburst';
+import { PanelStatDisplay } from './ui/panel-stat-display';
 
 interface Props {
   work: Work | null;
   onClose: () => void;
 }
 
-export function ProjectModal({ work, onClose }: Props) {
+function ProjectModal({ work, onClose }: Props) {
   const handleClose = useCallback(() => onClose(), [onClose]);
   useKeyDown('Escape', handleClose);
 
@@ -104,3 +104,5 @@ export function ProjectModal({ work, onClose }: Props) {
     </>
   );
 }
+
+export { ProjectModal };

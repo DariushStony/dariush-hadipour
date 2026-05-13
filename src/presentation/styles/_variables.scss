@@ -1,0 +1,66 @@
+/* =========================================================
+   Portfolio — "PANEL ONE"
+   A signature comic-book aesthetic for a front-end engineer.
+   Halftones, ink, action bursts, speech balloons, gutters.
+   ========================================================= */
+
+:root {
+  /* Classic palette (default) */
+  --paper: #f3e9c6; /* aged newsprint cream */
+  --paper-2: #ead9a3;
+  --ink: #0a0a0a;
+  --ink-soft: #1c1c1c;
+  --hero: #2649b8; /* hero blue */
+  --bam: #d92027; /* action red */
+  --pow: #ffd23f; /* benday yellow */
+  --zap: #1f8a5b; /* sidekick green */
+  --bubble: #ffffff;
+  --halftone: rgba(10, 10, 10, 0.55);
+
+  --border: 4px;
+  --border-lg: 6px;
+  --gutter: clamp(14px, 1.6vw, 22px);
+  --pad-x: clamp(20px, 4vw, 60px);
+
+  /* Type */
+  --f-title: "Bowlby One", "Anton", Impact, sans-serif;
+  --f-pow: "Bangers", "Bowlby One", Impact, sans-serif;
+  --f-body: "Comic Neue", "Comic Sans MS", "Bangers", system-ui, sans-serif;
+  --f-cap: "Special Elite", "Courier New", ui-monospace, monospace;
+  --f-ui: "Space Grotesk", system-ui, sans-serif;
+
+  --ease-out: cubic-bezier(0.18, 1, 0.3, 1);
+
+  color-scheme: light;
+}
+
+/* ----- Era palettes ----- */
+[data-era="modern"] {
+  --paper: #ededed;
+  --paper-2: #d8d8d8;
+  --ink: #0a0a0a;
+  --hero: #1a1aff;
+  --bam: #ff2d3a;
+  --pow: #fff200;
+  --zap: #00b86b;
+}
+
+[data-era="manga"] {
+  --paper: #f7f5f0;
+  --paper-2: #e9e6df;
+  --ink: #0a0a0a;
+  --hero: #0a0a0a;
+  --bam: #c20019;
+  --pow: #ffffff;
+  --zap: #0a0a0a;
+}
+
+[data-era="pulp"] {
+  --paper: #e9cf94;
+  --paper-2: #d2b06a;
+  --ink: #16110a;
+  --hero: #6b2a1a;
+  --bam: #b51e0e;
+  --pow: #f0a830;
+  --zap: #486033;
+}
