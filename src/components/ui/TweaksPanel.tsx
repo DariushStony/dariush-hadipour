@@ -1,10 +1,22 @@
 import { useState } from 'react';
+import { useTheme } from '../../context/ThemeContext';
+import type { Era, HalftoneMode, CursorMode } from '../../types';
 
-/**
- * Lightweight in-app tweaks panel for the standalone React build.
- * Toggle with the floating button. State is local React state.
- */
-export default function TweaksPanel({ tweaks, setTweak }) {
+const ERA_OPTIONS: { value: Era; label: string }[] = [
+  { value: 'classic', label: 'Classic — golden age' },
+  { value: 'modern', label: 'Modern — bright pop' },
+  { value: 'manga', label: 'Manga — ink + paper' },
+  { value: 'pulp', label: 'Pulp — vintage paperback' },
+];
+
+const HALFTONE_OPTIONS: HalftoneMode[] = ['on', 'heavy', 'off'];
+const CURSOR_OPTIONS: { value: CursorMode; label: string }[] = [
+  { value: 'comic', label: 'POW!' },
+  { value: 'off', label: 'Off' },
+];
+
+export function TweaksPanel() {
+  const { tweaks, setTweak } = useTheme();
   const [open, setOpen] = useState(false);
 
   return (
@@ -31,19 +43,20 @@ export default function TweaksPanel({ tweaks, setTweak }) {
             <span className="tw-label">Era</span>
             <select
               value={tweaks.era}
-              onChange={(e) => setTweak('era', e.target.value)}
+              onChange={(e) => setTweak('era', e.target.value as Era)}
             >
-              <option value="classic">Classic — golden age</option>
-              <option value="modern">Modern — bright pop</option>
-              <option value="manga">Manga — ink + paper</option>
-              <option value="pulp">Pulp — vintage paperback</option>
+              {ERA_OPTIONS.map((o) => (
+                <option key={o.value} value={o.value}>
+                  {o.label}
+                </option>
+              ))}
             </select>
           </div>
 
           <div className="tw-section">
             <span className="tw-label">Halftone</span>
             <div className="tw-radio">
-              {['on', 'heavy', 'off'].map((v) => (
+              {HALFTONE_OPTIONS.map((v) => (
                 <button
                   key={v}
                   type="button"
@@ -59,17 +72,14 @@ export default function TweaksPanel({ tweaks, setTweak }) {
           <div className="tw-section">
             <span className="tw-label">Cursor</span>
             <div className="tw-radio">
-              {[
-                { v: 'comic', l: 'POW!' },
-                { v: 'off', l: 'Off' },
-              ].map((o) => (
+              {CURSOR_OPTIONS.map((o) => (
                 <button
-                  key={o.v}
+                  key={o.value}
                   type="button"
-                  data-on={tweaks.cursor === o.v ? '1' : '0'}
-                  onClick={() => setTweak('cursor', o.v)}
+                  data-on={tweaks.cursor === o.value ? '1' : '0'}
+                  onClick={() => setTweak('cursor', o.value)}
                 >
-                  {o.l}
+                  {o.label}
                 </button>
               ))}
             </div>

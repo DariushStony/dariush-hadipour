@@ -1,39 +1,35 @@
 import { useEffect, useRef } from 'react';
 
-export default function Cursor({ big, label = 'POW!' }) {
-  const ref = useRef(null);
+export function useCursor(elRef: React.RefObject<HTMLElement | null>): void {
+  const rafRef = useRef<number>(0);
 
   useEffect(() => {
-    const el = ref.current;
-    if (!el) return undefined;
+    const el = elRef.current;
+    if (!el) return;
+
     let x = window.innerWidth / 2;
     let y = window.innerHeight / 2;
     let tx = x;
     let ty = y;
-    let raf;
 
-    const onMove = (e) => {
+    const onMove = (e: MouseEvent) => {
       tx = e.clientX;
       ty = e.clientY;
     };
+
     const tick = () => {
       x += (tx - x) * 0.26;
       y += (ty - y) * 0.26;
       el.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%)`;
-      raf = requestAnimationFrame(tick);
+      rafRef.current = requestAnimationFrame(tick);
     };
 
     window.addEventListener('mousemove', onMove);
-    raf = requestAnimationFrame(tick);
+    rafRef.current = requestAnimationFrame(tick);
+
     return () => {
       window.removeEventListener('mousemove', onMove);
-      cancelAnimationFrame(raf);
+      cancelAnimationFrame(rafRef.current);
     };
-  }, []);
-
-  return (
-    <div ref={ref} className={`cursor ${big ? 'lg' : ''}`}>
-      <span className="label">{label}</span>
-    </div>
-  );
+  }, [elRef]);
 }

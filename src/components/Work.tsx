@@ -1,7 +1,13 @@
-import { WORKS, PANEL_LAYOUT } from '../data.js';
-import Starburst from './Starburst.jsx';
+import type { Work } from '../types';
+import { WORKS, PANEL_LAYOUT } from '../data/works';
+import { Starburst } from './ui/Starburst';
+import { PanelStatDisplay } from './ui/PanelStatDisplay';
 
-export default function Work({ onOpen }) {
+interface Props {
+  onOpen: (work: Work) => void;
+}
+
+export function Work({ onOpen }: Props) {
   return (
     <section className="page work-section" id="work">
       <span className="page-number">
@@ -9,7 +15,7 @@ export default function Work({ onOpen }) {
       </span>
       <div className="page-title">
         <h2>
-          Meanwhile, <span className="red">Six</span> Projects…
+          Meanwhile, <span className="red">Six</span> Projects&hellip;
         </h2>
         <span className="sub">Chapter 1 / Click any panel</span>
       </div>
@@ -18,15 +24,12 @@ export default function Work({ onOpen }) {
         {WORKS.map((w, i) => (
           <article
             key={w.id}
-            className={`panel ${PANEL_LAYOUT[i] || ''}`}
+            className={`panel ${PANEL_LAYOUT[i] ?? ''}`}
             onClick={() => onOpen(w)}
           >
             <div className="panel-num">{w.id}</div>
             <div className={`panel-art tone-${w.tone}`}>
-              <div className="panel-stat-box">
-                <span className="panel-stat-num">{w.stat}</span>
-                <span className="panel-stat-lbl">{w.statLabel}</span>
-              </div>
+              <PanelStatDisplay stat={w.stat} label={w.statLabel} />
               <div className="panel-burst">
                 <Starburst color={i % 2 ? 'red' : 'yellow'}>{w.word}</Starburst>
               </div>

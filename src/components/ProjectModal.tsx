@@ -1,21 +1,21 @@
-import { useEffect } from 'react';
-import Starburst from './Starburst.jsx';
+import { useCallback } from 'react';
+import type { Work } from '../types';
+import { useKeyDown } from '../hooks/useKeyDown';
+import { Starburst } from './ui/Starburst';
+import { PanelStatDisplay } from './ui/PanelStatDisplay';
 
-export default function ProjectModal({ work, onClose }) {
-  useEffect(() => {
-    const onKey = (e) => {
-      if (e.key === 'Escape') onClose();
-    };
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, [onClose]);
+interface Props {
+  work: Work | null;
+  onClose: () => void;
+}
+
+export function ProjectModal({ work, onClose }: Props) {
+  const handleClose = useCallback(() => onClose(), [onClose]);
+  useKeyDown('Escape', handleClose);
 
   return (
     <>
-      <div
-        className={`modal-mask ${work ? 'open' : ''}`}
-        onClick={onClose}
-      />
+      <div className={`modal-mask ${work ? 'open' : ''}`} onClick={onClose} />
       <div className={`modal ${work ? 'open' : ''}`}>
         {work && (
           <>
@@ -47,12 +47,11 @@ export default function ProjectModal({ work, onClose }) {
                 </div>
               </div>
               <div className={`modal-hero panel-art tone-${work.tone}`}>
-                <div className="panel-stat-box">
-                  <span className="panel-stat-num" style={{ fontSize: 'clamp(48px, 8vw, 96px)' }}>
-                    {work.stat}
-                  </span>
-                  <span className="panel-stat-lbl">{work.statLabel}</span>
-                </div>
+                <PanelStatDisplay
+                  stat={work.stat}
+                  label={work.statLabel}
+                  statStyle={{ fontSize: 'clamp(48px, 8vw, 96px)' }}
+                />
                 <div style={{ position: 'absolute', top: 24, right: 24 }}>
                   <Starburst color="red" size="lg">
                     {work.word}
@@ -66,31 +65,30 @@ export default function ProjectModal({ work, onClose }) {
                   <p>
                     The piece sits inside a larger system, but on its own it answers a single
                     question: how does an interface stay composed when the data underneath is in
-                    motion? We chose typography and air over chrome — and a sprinkle of{' '}
+                    motion? We chose typography and air over chrome &mdash; and a sprinkle of{' '}
                     <b>KAPOW</b>.
                   </p>
                 </div>
               </div>
               <div className="modal-grid">
                 <div className="panel-art tone-yellow">
-                  <div className="panel-stat-box">
-                    <span className="panel-stat-num">{work.year}</span>
-                    <span className="panel-stat-lbl">Year Shipped</span>
-                  </div>
+                  <PanelStatDisplay stat={work.year} label="Year Shipped" />
                 </div>
                 <div className="panel-art tone-blue">
                   <div className="modal-stack-box">
                     {work.stack.split(' · ').map((t) => (
-                      <span key={t} className="modal-stack-chip">{t}</span>
+                      <span key={t} className="modal-stack-chip">
+                        {t}
+                      </span>
                     ))}
                   </div>
                 </div>
                 <div className="panel-art wide tone-ink">
-                  <div className="panel-stat-box">
-                    <span className="panel-stat-num" style={{ fontSize: 'clamp(20px, 3vw, 36px)', lineHeight: 1.1 }}>
-                      {work.win}
-                    </span>
-                  </div>
+                  <PanelStatDisplay
+                    stat={work.win}
+                    label=""
+                    statStyle={{ fontSize: 'clamp(20px, 3vw, 36px)', lineHeight: '1.1' }}
+                  />
                 </div>
               </div>
               <div className="modal-prose" style={{ marginTop: 50 }}>
