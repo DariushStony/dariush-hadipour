@@ -4,6 +4,7 @@ import { fileURLToPath, URL } from 'node:url';
 
 export default defineConfig({
   plugins: [react()],
+  base: '/dariush-hadipour/',
   server: { port: 5173, open: true },
   css: {
     preprocessorOptions: {
