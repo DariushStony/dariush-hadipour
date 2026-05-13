@@ -1,6 +1,5 @@
 import { WORKS, PANEL_LAYOUT } from '../data.js';
 import Starburst from './Starburst.jsx';
-import ArtSlot from './ArtSlot.jsx';
 
 export default function Work({ onOpen }) {
   return (
@@ -10,7 +9,7 @@ export default function Work({ onOpen }) {
       </span>
       <div className="page-title">
         <h2>
-          Meanwhile, <span className="red">Six</span> Adventures…
+          Meanwhile, <span className="red">Six</span> Projects…
         </h2>
         <span className="sub">Chapter 1 / Click any panel</span>
       </div>
@@ -24,7 +23,10 @@ export default function Work({ onOpen }) {
           >
             <div className="panel-num">{w.id}</div>
             <div className={`panel-art tone-${w.tone}`}>
-              <ArtSlot label={`Hero shot · ${w.title}`} />
+              <div className="panel-stat-box">
+                <span className="panel-stat-num">{w.stat}</span>
+                <span className="panel-stat-lbl">{w.statLabel}</span>
+              </div>
               <div className="panel-burst">
                 <Starburst color={i % 2 ? 'red' : 'yellow'}>{w.word}</Starburst>
               </div>

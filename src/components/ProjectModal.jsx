@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import Starburst from './Starburst.jsx';
-import ArtSlot from './ArtSlot.jsx';
 
 export default function ProjectModal({ work, onClose }) {
   useEffect(() => {
@@ -40,7 +39,7 @@ export default function ProjectModal({ work, onClose }) {
                 </div>
                 <div>
                   <b>Stack</b>
-                  <span>React · TS · GSAP</span>
+                  <span>{work.stack}</span>
                 </div>
                 <div>
                   <b>Status</b>
@@ -48,7 +47,12 @@ export default function ProjectModal({ work, onClose }) {
                 </div>
               </div>
               <div className={`modal-hero panel-art tone-${work.tone}`}>
-                <ArtSlot label={`Hero · ${work.title}`} />
+                <div className="panel-stat-box">
+                  <span className="panel-stat-num" style={{ fontSize: 'clamp(48px, 8vw, 96px)' }}>
+                    {work.stat}
+                  </span>
+                  <span className="panel-stat-lbl">{work.statLabel}</span>
+                </div>
                 <div style={{ position: 'absolute', top: 24, right: 24 }}>
                   <Starburst color="red" size="lg">
                     {work.word}
@@ -69,20 +73,30 @@ export default function ProjectModal({ work, onClose }) {
               </div>
               <div className="modal-grid">
                 <div className="panel-art tone-yellow">
-                  <ArtSlot label="Detail · 4:3" />
+                  <div className="panel-stat-box">
+                    <span className="panel-stat-num">{work.year}</span>
+                    <span className="panel-stat-lbl">Year Shipped</span>
+                  </div>
                 </div>
                 <div className="panel-art tone-blue">
-                  <ArtSlot label="Detail · 4:3" />
+                  <div className="modal-stack-box">
+                    {work.stack.split(' · ').map((t) => (
+                      <span key={t} className="modal-stack-chip">{t}</span>
+                    ))}
+                  </div>
                 </div>
                 <div className="panel-art wide tone-ink">
-                  <ArtSlot label="Wide shot · 16:7" />
+                  <div className="panel-stat-box">
+                    <span className="panel-stat-num" style={{ fontSize: 'clamp(20px, 3vw, 36px)', lineHeight: 1.1 }}>
+                      {work.win}
+                    </span>
+                  </div>
                 </div>
               </div>
               <div className="modal-prose" style={{ marginTop: 50 }}>
                 <h4>The Win</h4>
                 <div className="body">
-                  <p>+38% engagement on first session. Lighthouse 99/100.</p>
-                  <p>Shortlisted at Awwwards &amp; Site Inspire. Continued next issue →</p>
+                  <p>{work.win}</p>
                 </div>
               </div>
             </div>

@@ -5,25 +5,27 @@ export default function Cover() {
     <section className="page cover" id="top">
       <div className="issue-tag">
         <div className="left">
-          <span className="issue">Vol. 08 / No. 26</span>
-          <span>Approved by the Comics Code · A Yusuf Production</span>
+          <span className="issue">Vol. 01 / No. 01</span>
+          <span>Approved by the Comics Code · A Dariush Production</span>
         </div>
         <div className="price">$0.10</div>
       </div>
 
       <div className="cover-title">
-        <span className="kicker">Featuring · Front-end engineer</span>
+        <span className="kicker">Featuring · Senior Front-End Engineer</span>
         <h1>
-          <span>Front</span>
-          <span className="red">-end</span>
+          <span style={{ whiteSpace: 'nowrap' }}>
+            <span>Front</span>
+            <span className="red">-end</span>
+          </span>
           <br />
-          <span className="blue">Hero</span>
+          <span className="blue">Engineer</span>
           <br />
           <span>at Large!</span>
         </h1>
         <p className="tagline">
-          Eight years of shipping interfaces that punch above their weight. Big motion. Quiet
-          defaults. The kind of details villains never notice.
+          6+ years shipping scalable, high-performance apps with React, Next.js &amp; TypeScript.
+          Design Systems. Monorepos. The kind of code that moves metrics.
         </p>
       </div>
 
@@ -56,24 +58,24 @@ export default function Cover() {
       <div className="cover-bottom">
         <div className="caption-box">
           <b>— Continued from page one</b>
-          Don&apos;t miss this issue! Our hero ships pixel-perfect production code, AND finds time
-          to obsess over kerning. <em>You won&apos;t believe panel three.</em>
+          Don&apos;t miss this issue! Dariush ships high-performance production code at Digikala
+          AND measures every pixel with Core Web Vitals. <em>+31% conversion. Panel three.</em>
           <div className="row">
             <b>STATUS</b>
-            <span>AVAILABLE · AUG 2026</span>
+            <span>6+ YRS · OPEN TO WORK</span>
           </div>
           <div className="row">
             <b>BASED</b>
-            <span>BERLIN · 52.5°N</span>
+            <span>TEHRAN · IRAN</span>
           </div>
           <div className="row">
             <b>TIMEZONE</b>
-            <span>CET ±3</span>
+            <span>IRST +3:30</span>
           </div>
         </div>
         <div className="speech-cover">
-          “I build interfaces that feel like they were <b>made on purpose</b> — where every motion,
-          color, and millisecond <em>means something.</em> Wanna see?”
+          "I build interfaces that feel like they were <b>made on purpose</b> — at Digikala and
+          beyond, every pixel, motion, and millisecond <em>means something.</em> Wanna see?"
         </div>
       </div>
     </section>
