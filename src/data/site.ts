@@ -14,7 +14,7 @@ const SITE_META = {
   yearsExp: '6+',
   currentCompany: 'Digikala',
   currentCompanyUrl: 'https://www.digikala.com',
-  photoSrc: '/photo.png',
+  photoSrc: `${import.meta.env.BASE_URL}photo.png`,
   originYear: '2017',
   originCity: 'Tehran',
   copyright: '© 2026 — KAPOW!',
